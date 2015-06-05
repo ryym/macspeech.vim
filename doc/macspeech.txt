@@ -1,0 +1,55 @@
+macspeech.txt*   Speech synthesizer using Mac OS X functionality
+
+Version: 0.0.1
+Author: ryuyama
+License: NYSL
+
+==============================================================================
+CONTENTS					*macspeech-contents*
+
+INTRODUCTION                 |macspeech-introduction|
+INTERFACE                    |macspeech-interface|
+  COMMANDS                   |macspeech-commands|
+  FUNCTIONS                  |macspeech-functions|
+
+==============================================================================
+INTRODUCTION					*macspeech-introduction*
+
+*macspeech* is a small plugin to make vim speak texts.
+
+NOTE: This plugin uses the Speech Synthesis Manager of Mac OS X, so that
+this only works on Mac OS X.
+
+Requirements:
+- vimproc
+
+==============================================================================
+INTERFACE					*macspeech-interface*
+------------------------------------------------------------------------------
+COMMANDS					*macspeech-commands*
+
+:MacSpeech {text}
+        Call |macspeech#say()|.
+
+:MacSpeechSelected
+        Call |macspeech#say_selected_text()|.
+
+:MacSpeechStop
+        Call |macspeech#stop()|.
+
+------------------------------------------------------------------------------
+FUNCTIONS					*macspeech-functions*
+
+macspeech#say({text})                           *macspeech#say()*
+        Speak a given text.
+        This function simply run `say {text}` command by |vimproc|.
+        The command will be executed in the background.
+
+macspeech#say_selected_text()                   *macspeech#say_selected_text()*
+        Speak the text selected in visual mode.
+
+macspeech#stop()                                *macspeech#stop()*
+        Stop the current speech.
+
+==============================================================================
+vim:tw=78:fo=tcq2mM:ts=8:ft=help:norl
