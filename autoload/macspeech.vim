@@ -6,8 +6,8 @@ let s:kill_signal_SIGTERM = 15
 
 " Speak the text.
 function! macspeech#say(text)
-  let text         = s:escape_text(a:text)
-  let process_obj  = vimproc#popen2('say "'.text.'"')
+  let escaped_text = shellescape(a:text)
+  let process_obj  = vimproc#popen2('say ' . escaped_text)
   let s:speech_pid = process_obj.pid
 endfunction
 
@@ -27,15 +27,6 @@ function! macspeech#stop()
     call vimproc#kill(s:speech_pid, s:kill_signal_SIGTERM)
     let s:speech_pid = 0
   endif
-endfunction
-
-" Escape the text.
-function! s:escape_text(text)
-  let text = a:text
-  for char in ['\', "'", '"']
-    let text = escape(text, char)
-  endfor
-  return text
 endfunction
 
 let &cpo = s:save_cpo
