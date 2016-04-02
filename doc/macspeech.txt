@@ -17,7 +17,7 @@ INTRODUCTION					*macspeech-introduction*
 
 *macspeech* is a small plugin to make vim speak texts.
 
-NOTE: This plugin uses the Speech Synthesis Manager of Mac OS X, so that
+NOTE: This plugin uses the Speech Synthesis Manager of Mac OS X, so
 this only works on Mac OS X.
 
 Requirements:
